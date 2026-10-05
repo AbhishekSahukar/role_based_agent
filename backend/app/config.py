@@ -14,16 +14,25 @@ def _required(name: str) -> str:
     return value
 
 
+# --- Entra ID ---
 TENANT_ID = _required("TENANT_ID")
 API_CLIENT_ID = _required("API_CLIENT_ID")
 WEB_CLIENT_ID = _required("WEB_CLIENT_ID")
 REQUIRED_SCOPE = os.getenv("REQUIRED_SCOPE", "access_as_user")
-
-# Full scope string the browser requests for our API.
 API_SCOPE = f"api://{API_CLIENT_ID}/{REQUIRED_SCOPE}"
-
-# v2.0 issuer and signing-key endpoint for your tenant.
 ISSUER = f"https://login.microsoftonline.com/{TENANT_ID}/v2.0"
 JWKS_URL = f"https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys"
 
+# --- LLM (OpenRouter) ---
+OPENROUTER_API_KEY = _required("OPENROUTER_API_KEY")
+OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+LLM_MODEL = os.getenv("LLM_MODEL", "deepseek/deepseek-v4-flash:free")
+LLM_MAX_RETRIES = int(os.getenv("LLM_MAX_RETRIES", "3"))
+LLM_TIMEOUT_SECONDS = int(os.getenv("LLM_TIMEOUT_SECONDS", "60"))
+AGENT_RECURSION_LIMIT = int(os.getenv("AGENT_RECURSION_LIMIT", "8"))
+
+# --- Tracing (optional: tracing is off if keys are missing) ---
+LANGFUSE_ENABLED = bool(os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"))
+
+# --- Front end ---
 FRONTEND_DIR = ROOT_DIR / "frontend"

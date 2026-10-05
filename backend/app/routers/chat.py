@@ -1,8 +1,11 @@
 import logging
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
+from langgraph.errors import GraphRecursionError
+from openai import APIStatusError, RateLimitError
 from pydantic import BaseModel, Field
 
+from app.agent import run_agent
 from app.auth import CurrentUser, get_current_user
 
 log = logging.getLogger("askhr.chat")
@@ -22,9 +25,22 @@ def chat(req: ChatRequest, user: CurrentUser = Depends(get_current_user)):
     # Log who asked, not what they asked: messages may contain personal data.
     log.info("chat oid=%s name=%s roles=%s message_len=%d",
              user.oid, user.name, user.roles, len(req.message))
+    try:
+        reply = run_agent(user, req.message)
+    except RateLimitError:
+        # 429 after the client's own retries: per-minute or per-day free limit hit.
+        log.warning("llm rate limited oid=%s", user.oid)
+        raise HTTPException(429, "The assistant is busy right now. Please try again in a minute.")
+    except APIStatusError as e:
+        if e.status_code == 402:
+            # Negative OpenRouter balance: returns 402 even for free models.
+            log.error("llm payment required (402): check OpenRouter credit balance")
+            raise HTTPException(503, "The assistant is temporarily unavailable.")
+            log.error("llm error status=%s message=%s", e.status_code, e.message)
+        raise HTTPException(502, "The assistant could not answer. Please try again.")
+    except GraphRecursionError:
+        log.warning("agent hit recursion limit oid=%s", user.oid)
+        raise HTTPException(500, "The assistant got stuck on that question. Please rephrase it.")
 
-    reply = (
-        f"(Phase 2 placeholder) Hi {user.name}, your roles are {user.roles}. "
-        "The agent arrives in Phase 3."
-    )
+    log.info("chat done oid=%s reply_len=%d", user.oid, len(reply))
     return ChatResponse(reply=reply)

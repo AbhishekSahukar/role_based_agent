@@ -144,7 +144,12 @@ async function sendMessage(event) {
   if (!res) return;
 
   if (!res.ok) {
-    showError(`Request failed (${res.status}).`);
+    let detail = `Request failed (${res.status}).`;
+    try {
+      const body = await res.json();
+      if (typeof body.detail === "string") detail = body.detail;
+    } catch (_) { /* non-JSON error body */ }
+    showError(detail);
     return;
   }
   const data = await res.json();
