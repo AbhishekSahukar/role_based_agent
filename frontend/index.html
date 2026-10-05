@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AskHR</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    .hidden { display: none; }
+    #status { color: #555; }
+    #error { color: #b00020; }
+    #log { border: 1px solid #ddd; border-radius: 6px; padding: 1rem; min-height: 120px; white-space: pre-wrap; }
+    .msg-user { font-weight: 600; margin-top: .75rem; }
+    form { display: flex; gap: .5rem; margin-top: 1rem; }
+    input { flex: 1; padding: .5rem; }
+    button { padding: .5rem 1rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>AskHR</h1>
+  <p id="status">Loading…</p>
+  <p id="error"></p>
+
+  <div id="signed-out" class="hidden">
+    <button id="btn-signin">Sign in</button>
+  </div>
+
+  <div id="signed-in" class="hidden">
+    <p>Signed in as <strong id="user-name"></strong>, roles: <strong id="user-roles"></strong>
+      <button id="btn-signout">Sign out</button>
+      <button id="btn-renew">Force token renewal</button>
+    </p>
+    <div id="log"></div>
+    <form id="chat-form">
+      <input id="chat-input" placeholder="Ask an HR or IT question…" autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="/vendor/msal-browser.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
