@@ -1,0 +1,198 @@
+[
+  {
+    "id": "hr-salary-bands",
+    "title": "Salary bands by career level",
+    "category": "HR",
+    "allowed_roles": ["HR"],
+    "content": "Confidential. Northlake Software GmbH salary bands (annual gross, EUR, full-time) for 2026. Level 1 (Junior): 42,000 to 50,000. Level 2: 48,000 to 58,000. Level 3: 56,000 to 68,000. Level 4 (Senior): 66,000 to 80,000. Level 5 (Staff / Lead): 78,000 to 96,000. Level 6 (Principal): 94,000 to 118,000. Level 7 (Director): 115,000 to 145,000. Offers above the band maximum need written approval from the HR Director and the CFO. Bands are reviewed every January. Note for HR staff: when talking to candidates or employees, share band figures only in a formal offer or promotion discussion."
+  },
+  {
+    "id": "hr-performance-calibration",
+    "title": "Performance review calibration guidelines",
+    "category": "HR",
+    "allowed_roles": ["HR"],
+    "content": "Confidential. Calibration sessions take place in November after managers submit draft ratings. HR facilitates each session and checks the rating distribution per department against the guideline: roughly 15 percent exceeds expectations, 70 percent meets expectations, 15 percent partially meets or below. Ratings may only change in calibration with a written reason. Final ratings feed the merit increase matrix, which HR applies in January. Managers may not tell employees their rating before calibration is closed."
+  },
+  {
+    "id": "hr-disciplinary-process",
+    "title": "Disciplinary process",
+    "category": "HR",
+    "allowed_roles": ["HR"],
+    "content": "Confidential. Step 1 is an informal conversation documented by the manager. Step 2 is a formal written warning (Abmahnung) prepared by HR and reviewed by legal counsel. Step 3 is a final written warning. Gross misconduct can lead directly to dismissal after HR and legal review. The works council must be informed before any dismissal. All disciplinary records are stored in the HR system with restricted access and kept for the duration required by law."
+  },
+  {
+    "id": "hr-offer-approval",
+    "title": "Recruitment and offer approval limits",
+    "category": "HR",
+    "allowed_roles": ["HR"],
+    "content": "Confidential. Hiring managers may approve offers within the lower half of the salary band. Offers in the upper half need HR Business Partner approval. Offers above the band maximum need HR Director and CFO approval. Signing bonuses up to 5,000 EUR need HR Director approval; above that, CFO approval. Relocation packages follow the standard tiers in the HR handbook. Every offer letter is generated from the HR template, never written from scratch."
+  },
+  {
+    "id": "hr-termination-checklist",
+    "title": "Termination checklist for HR",
+    "category": "HR",
+    "allowed_roles": ["HR"],
+    "content": "Confidential. When an employment ends, HR confirms the last working day, calculates remaining leave and overtime, prepares the employment certificate (Arbeitszeugnis), informs payroll of final payments, and notifies the works council where required. HR triggers the IT offboarding ticket at least five working days before the last day. Exit interviews are optional and their notes are stored anonymously."
+  },
+  {
+    "id": "hr-employee-data-handling",
+    "title": "Handling employee personal data in HR",
+    "category": "HR",
+    "allowed_roles": ["HR"],
+    "content": "Confidential. Employee personal data is processed under GDPR and the German Federal Data Protection Act. Only HR staff with a business need may open personnel files. Health information, such as sick notes, is stored separately from the main personnel file. Data is deleted according to the retention schedule: applicant data six months after the process ends, payroll records ten years. Requests for access to personal data are answered within one month."
+  },
+  {
+    "id": "all-annual-leave",
+    "title": "Annual leave",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Full-time employees receive 30 working days of paid annual leave per calendar year, pro rata for part-time and for joiners during the year. Request leave in the HR portal at least two weeks in advance for absences longer than three days. Up to five unused days may be carried over to 31 March of the next year. Leave approval is given by your direct manager."
+  },
+  {
+    "id": "all-sick-leave",
+    "title": "Sick leave and reporting illness",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "If you are ill, inform your manager before your usual start time. From the fourth calendar day of illness, a doctor's certificate is required; in Germany it is transmitted electronically by your doctor (eAU) and you do not need to send a paper copy. Your salary continues for up to six weeks per illness. Please do not share medical details with your manager; the information that you are unfit for work is enough."
+  },
+  {
+    "id": "all-parental-leave",
+    "title": "Parental leave",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Employees can take parental leave (Elternzeit) of up to three years per child. Notify HR in writing at least seven weeks before the planned start. Part-time work during parental leave is possible by agreement. Northlake tops up the statutory parental allowance by a one-off payment of 1,000 EUR per child. Your position or an equivalent role is guaranteed when you return."
+  },
+  {
+    "id": "all-remote-work",
+    "title": "Remote and hybrid work",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Employees may work remotely up to three days per week in agreement with their team. Remote work from abroad is allowed for up to 20 working days per year inside the EU and must be requested in the HR portal two weeks in advance. Company laptops must be used for all work; confidential documents may not be printed at home. A monthly home-office allowance of 30 EUR is paid with the salary."
+  },
+  {
+    "id": "all-working-hours",
+    "title": "Working hours and overtime",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "The standard working week is 40 hours with flexible start times between 7:00 and 10:00. Core hours are 10:00 to 15:00. Overtime must be agreed with your manager in advance and is compensated with time off, recorded in the time-tracking tool. The legal maximum of 10 hours per day and an 11-hour rest period between working days must be respected."
+  },
+  {
+    "id": "all-travel-expenses",
+    "title": "Business travel and expenses",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Book business travel through the travel portal. Train travel is preferred for trips under four hours; second class for trips under two hours, first class above. Hotels up to 150 EUR per night in Germany. Meal allowances follow the German statutory per-diem rates. Submit expenses with receipts within 30 days in the expense tool; your manager approves them."
+  },
+  {
+    "id": "all-code-of-conduct",
+    "title": "Code of conduct",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Treat colleagues, customers and partners with respect. Harassment and discrimination of any kind are not tolerated. Gifts from business partners above 50 EUR must be declined or reported to compliance. Conflicts of interest, such as side jobs with competitors, must be disclosed to HR. Report concerns to your manager, HR or the whistleblowing channel."
+  },
+  {
+    "id": "all-learning-budget",
+    "title": "Learning and development budget",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Every employee has a learning budget of 1,500 EUR and five learning days per year for courses, conferences, certifications or books. Request the budget in the HR portal with a short description of the learning goal. Certifications required for your role, such as cloud certifications for IT staff, are paid in addition to the personal budget."
+  },
+  {
+    "id": "all-whistleblowing",
+    "title": "Whistleblowing channel",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Northlake operates an anonymous whistleblowing channel in line with the German Whistleblower Protection Act (HinSchG). Reports are received by an independent ombudsperson. You can report breaches of law or company policy without giving your name. Retaliation against anyone who reports in good faith is prohibited."
+  },
+  {
+    "id": "all-onboarding",
+    "title": "Onboarding for new employees",
+    "category": "HR",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "New employees receive their laptop and accounts on day one. The first week includes an HR introduction, an IT security briefing and a meeting with a buddy from the team. Mandatory trainings (data protection, information security, code of conduct) must be completed within the first 30 days. The probation period is six months."
+  },
+  {
+    "id": "all-equipment-request",
+    "title": "Requesting IT equipment",
+    "category": "IT",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Standard equipment is a laptop, a headset and one external monitor. Additional items such as a second monitor, docking station or ergonomic keyboard can be requested through the IT service portal under 'Equipment request'. Items up to 300 EUR are approved by your manager; above that, by the IT lead. Delivery usually takes five working days."
+  },
+  {
+    "id": "all-password-policy",
+    "title": "Password policy",
+    "category": "IT",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Passwords must have at least 14 characters. Use a passphrase and the company password manager. Passwords are not rotated on a fixed schedule; change yours immediately if you suspect it was exposed. Never reuse your work password on other websites and never share it, not even with IT staff. IT will never ask for your password."
+  },
+  {
+    "id": "all-mfa-policy",
+    "title": "Multi-factor authentication",
+    "category": "IT",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Multi-factor authentication with Microsoft Authenticator is required for all company accounts. If you get a new phone, move your Authenticator accounts before resetting the old one. If you lose your phone, contact the IT service desk immediately so your sign-in sessions can be revoked. Never approve a sign-in request you did not start yourself."
+  },
+  {
+    "id": "all-acceptable-use",
+    "title": "Acceptable use of IT systems",
+    "category": "IT",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "Company devices and accounts are for business use; limited private use is tolerated if it does not affect work or security. Do not install unapproved software; request it via the IT service portal. Do not upload company data to private cloud storage or to AI tools that are not approved by IT. Approved AI tools are listed on the IT intranet page."
+  },
+  {
+    "id": "all-phishing-reporting",
+    "title": "Reporting phishing and security incidents",
+    "category": "IT",
+    "allowed_roles": ["HR", "Employee", "IT"],
+    "content": "If you receive a suspicious email, use the 'Report phishing' button in Outlook and do not click links or open attachments. If you already clicked a link or entered your password, call the IT service desk immediately; quick reporting limits the damage and you will not be blamed for reporting. Lost or stolen devices must be reported within one hour."
+  },
+  {
+    "id": "it-incident-response",
+    "title": "Security incident response runbook",
+    "category": "IT",
+    "allowed_roles": ["IT"],
+    "content": "Internal IT only. Severity 1 (active compromise, data exfiltration): page the on-call security engineer, isolate affected devices via the endpoint management console, revoke the user's sessions in Entra ID and reset credentials. Preserve logs before remediation. Inform the data protection officer within four hours if personal data may be affected; GDPR requires notification to the authority within 72 hours. Write a post-incident report within five working days."
+  },
+  {
+    "id": "it-privileged-access",
+    "title": "Privileged access management",
+    "category": "IT",
+    "allowed_roles": ["IT"],
+    "content": "Internal IT only. Administrators use separate admin accounts that are never used for email or browsing. Global Administrator rights are held by at most three people and activated just in time for a maximum of four hours. Break-glass accounts are excluded from Conditional Access, monitored for every sign-in and tested quarterly. All admin role assignments are reviewed every quarter."
+  },
+  {
+    "id": "it-laptop-imaging",
+    "title": "Laptop provisioning and imaging",
+    "category": "IT",
+    "allowed_roles": ["IT"],
+    "content": "Internal IT only. New laptops are enrolled through Autopilot and receive the standard configuration profile: disk encryption enabled, local admin rights removed, endpoint protection installed, automatic updates on. Re-imaging is required when a laptop changes owner. Hardware older than four years is retired and wiped with a certified tool before disposal."
+  },
+  {
+    "id": "it-firewall-change",
+    "title": "Firewall and network change process",
+    "category": "IT",
+    "allowed_roles": ["IT"],
+    "content": "Internal IT only. Every firewall rule change needs a change ticket with business justification, source, destination, port and expiry date. Standard changes are approved by the network lead; changes exposing services to the internet need security team approval. Changes are deployed in the Tuesday or Thursday maintenance window. Rules without an owner are removed during the quarterly review."
+  },
+  {
+    "id": "it-backup-restore",
+    "title": "Backup and restore procedure",
+    "category": "IT",
+    "allowed_roles": ["IT"],
+    "content": "Internal IT only. Production databases are backed up every night with 35 days of retention and a weekly copy kept for one year in a separate region. File shares use snapshots every four hours. A restore test is performed every month and documented. Restore requests from employees are handled through the IT service portal; restores of another person's data require written approval from their manager."
+  },
+  {
+    "id": "hrit-offboarding-access",
+    "title": "Offboarding: access removal",
+    "category": "IT",
+    "allowed_roles": ["HR", "IT"],
+    "content": "Shared HR and IT procedure. HR opens the offboarding ticket at least five working days before the last day. On the last day at 18:00, IT disables the user's Entra ID account, revokes all sessions, removes app role assignments and licences, and converts the mailbox to a shared mailbox for 90 days. The laptop is collected by HR and returned to IT for wiping. For immediate terminations, HR calls the IT service desk and the account is disabled within one hour."
+  },
+  {
+    "id": "hrit-new-joiner-accounts",
+    "title": "New joiner account creation",
+    "category": "IT",
+    "allowed_roles": ["HR", "IT"],
+    "content": "Shared HR and IT procedure. HR creates the new joiner in the HR system at least ten working days before the start date, including job title, department and manager. This triggers automatic account creation in Entra ID. IT assigns the standard licence, app roles based on department, and prepares the laptop. The temporary password is handed over in person on day one, never by email."
+  }
+]

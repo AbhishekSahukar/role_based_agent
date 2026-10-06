@@ -23,6 +23,9 @@ API_SCOPE = f"api://{API_CLIENT_ID}/{REQUIRED_SCOPE}"
 ISSUER = f"https://login.microsoftonline.com/{TENANT_ID}/v2.0"
 JWKS_URL = f"https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys"
 
+# App role Values defined on askhr-api. Must match exactly (case matters).
+KNOWN_ROLES = frozenset({"HR", "Employee", "IT"})
+
 # --- LLM (OpenRouter) ---
 OPENROUTER_API_KEY = _required("OPENROUTER_API_KEY")
 OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
@@ -30,6 +33,11 @@ LLM_MODEL = os.getenv("LLM_MODEL", "deepseek/deepseek-v4-flash:free")
 LLM_MAX_RETRIES = int(os.getenv("LLM_MAX_RETRIES", "3"))
 LLM_TIMEOUT_SECONDS = int(os.getenv("LLM_TIMEOUT_SECONDS", "60"))
 AGENT_RECURSION_LIMIT = int(os.getenv("AGENT_RECURSION_LIMIT", "8"))
+
+# --- Azure AI Search (keyless: Entra ID via DefaultAzureCredential) ---
+SEARCH_ENDPOINT = _required("SEARCH_ENDPOINT")
+SEARCH_INDEX = os.getenv("SEARCH_INDEX", "policies")
+SEARCH_TOP = int(os.getenv("SEARCH_TOP", "3"))
 
 # --- Tracing (optional: tracing is off if keys are missing) ---
 LANGFUSE_ENABLED = bool(os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"))

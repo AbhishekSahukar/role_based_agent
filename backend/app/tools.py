@@ -4,6 +4,8 @@ from typing import Annotated
 from langchain_core.tools import tool
 from langgraph.prebuilt import InjectedState
 
+from app import retrieval
+
 log = logging.getLogger("askhr.tools")
 
 # InjectedState: ToolNode fills this parameter from the graph state.
@@ -27,14 +29,20 @@ def get_my_access(state: Annotated[dict, InjectedState]) -> str:
 @tool
 def search_policies(query: str, state: Annotated[dict, InjectedState]) -> str:
     """Search internal HR and IT policy documents (leave, salary bands,
-    equipment, passwords, travel, etc.). Use this for any policy question."""
-    roles = state["roles"]
-    # Phase 4: build the allowed_roles filter from `roles` here.
-    log.info("tool=search_policies oid=%s roles=%s query_len=%d filter=not-yet-built",
-             state["oid"], roles, len(query))
+    equipment, passwords, travel, security procedures, etc.).
+    Use this for any policy question. Pass a short keyword query."""
+    oid, roles = state["oid"], state["roles"]
+    log.info("tool=search_policies oid=%s roles=%s query_len=%d", oid, roles, len(query))
+
+    docs = retrieval.search_policies(query=query, roles=roles, oid=oid)
+    if not docs:
+        return "No policy documents available to this user match the query."
+
+    parts = [f"[{d['title']}] (id: {d['id']})\n{d['content']}" for d in docs]
     return (
-        "Policy search is not connected yet. Tell the user you cannot look up "
-        "policy documents at the moment."
+        "Policy documents available to this user. Answer only from these; if none "
+        "of them actually answers the question, say you can't find that information.\n\n"
+        + "\n\n---\n\n".join(parts)
     )
 
 
