@@ -20,11 +20,23 @@ API_CLIENT_ID = _required("API_CLIENT_ID")
 WEB_CLIENT_ID = _required("WEB_CLIENT_ID")
 REQUIRED_SCOPE = os.getenv("REQUIRED_SCOPE", "access_as_user")
 API_SCOPE = f"api://{API_CLIENT_ID}/{REQUIRED_SCOPE}"
-ISSUER = f"https://login.microsoftonline.com/{TENANT_ID}/v2.0"
-JWKS_URL = f"https://login.microsoftonline.com/{TENANT_ID}/discovery/v2.0/keys"
+AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
+ISSUER = f"{AUTHORITY}/v2.0"
+JWKS_URL = f"{AUTHORITY}/discovery/v2.0/keys"
 
 # App role Values defined on askhr-api. Must match exactly (case matters).
 KNOWN_ROLES = frozenset({"HR", "Employee", "IT"})
+
+# --- On-behalf-of (askhr-api as a confidential client) ---
+API_CLIENT_SECRET = _required("API_CLIENT_SECRET")  # Phase 6: from Key Vault
+GRAPH_SCOPES = ["https://graph.microsoft.com/User.Read"]
+GRAPH_ME_URL = (
+    "https://graph.microsoft.com/v1.0/me"
+    "?$select=displayName,userPrincipalName,mail,jobTitle,department"
+)
+
+# --- MCP server (mounted inside this app) ---
+MCP_URL = os.getenv("MCP_URL", "http://localhost:8000/tools/mcp")
 
 # --- LLM (OpenRouter) ---
 OPENROUTER_API_KEY = _required("OPENROUTER_API_KEY")
