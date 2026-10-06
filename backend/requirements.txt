@@ -1,4 +1,16 @@
-fastapi
-uvicorn[standard]
-pyjwt[crypto]
-python-dotenv
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+pyjwt[crypto]==2.15.1
+python-dotenv==1.2.4
+langgraph==X.Y.Z
+langchain==X.Y.Z
+langchain-core==X.Y.Z
+langchain-openai==X.Y.Z
+langfuse==X.Y.Z
+azure-identity==X.Y.Z
+azure-search-documents==X.Y.Z
+msal==X.Y.Z
+mcp==X.Y.Z
+langchain-mcp-adapters==X.Y.Z
+httpx==X.Y.Z
+pywin32==X.Y.Z; sys_platform == "win32"
