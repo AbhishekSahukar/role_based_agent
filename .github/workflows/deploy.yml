@@ -1,0 +1,59 @@
+name: build-and-deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # manual "Run workflow" button
+
+# Least privilege for the run's own GitHub token.
+permissions:
+  contents: read              # check out the code
+  packages: write             # push to GHCR
+  id-token: write             # request the OIDC token for Azure
+
+env:
+  IMAGE: ghcr.io/abhisheksahukar/role_based_agent   # must be lowercase
+  RESOURCE_GROUP: rg-askhr
+  CONTAINER_APP: askhr-app
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}   # built-in, short-lived, created per run
+
+      - name: Build image (tag = commit SHA)
+        run: docker build -t "$IMAGE:${{ github.sha }}" .
+
+      - name: Import check inside the image
+        run: |
+          docker run --rm --entrypoint python \
+            -e TENANT_ID=x -e API_CLIENT_ID=x -e WEB_CLIENT_ID=x -e API_CLIENT_SECRET=x \
+            -e OPENROUTER_API_KEY=x -e SEARCH_ENDPOINT=https://x.search.windows.net \
+            "$IMAGE:${{ github.sha }}" -c "import app.main; print('imports ok')"
+
+      - name: Push image
+        run: docker push "$IMAGE:${{ github.sha }}"
+
+      - name: Azure login (OIDC, no secret)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy new revision
+        run: |
+          az extension add --name containerapp --upgrade --yes --only-show-errors
+          az containerapp update \
+            --name "$CONTAINER_APP" --resource-group "$RESOURCE_GROUP" \
+            --image "$IMAGE:${{ github.sha }}" \
+            --query "properties.latestRevisionName" -o tsv
